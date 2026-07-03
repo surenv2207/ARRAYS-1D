@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Read the size of the matrix (e.g., 4)
+        int n = sc.nextInt();
+        int[][] arr = new int[n][n];
+        
+        // Populate the matrix with user input
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        
+        int sum1 = 0; // To store the primary diagonal sum
+        int sum2 = 0; // To store the secondary diagonal sum
+        
+        // Calculate both diagonal sums in a single loop
+        for (int i = 0; i < n; i++) {
+            sum1 += arr[i][i];         // Top-left to bottom-right
+            sum2 += arr[i][n - 1 - i]; // Top-right to bottom-left
+        }
+        
+        // Print "Yes" if they match, otherwise "No"
+        if (sum1 == sum2) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+        
+        sc.close();
+    }
+}
