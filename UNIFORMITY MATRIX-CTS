@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class UniformityMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+  
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+        
+        int totalElements = n * n;
+        int evenCount = 0;
+        int oddCount = 0;
+        
+      
+        for (int i = 0; i < totalElements; i++) {
+            if (sc.hasNextInt()) {
+                int num = sc.nextInt();
+                if (num % 2 == 0) {
+                    evenCount++;
+                } else {
+                    oddCount++;
+                }
+            }
+        }
+        
+        
+        if (evenCount == totalElements || oddCount == totalElements) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+        
+        sc.close();
+    }
+}
